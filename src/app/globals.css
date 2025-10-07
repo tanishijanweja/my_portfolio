@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Merriweather", serif;
+
+  --screen-sm: 375px;
+  --screen-md: 768px;
+  --screen-lg: 1200px;
+
+  --container-padding-default: 1rem;
+  --container-padding-md: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.container {
+  margin-inline: auto;
+  padding-inline: var(--container-padding-default);
+  max-width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: var(--screen-md)) {
+  .container {
+    padding-inline: var(--container-padding-md);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: var(--screen-sm)) {
+  .container {
+    max-width: var(--screen-sm);
+  }
+}
+
+@media (min-width: var(--screen-md)) {
+  .container {
+    max-width: var(--screen-md);
+  }
+}
+
+@media (min-width: var(--screen-lg)) {
+  .container {
+    max-width: var(--screen-lg);
+  }
+}
+
+@layer base {
+  .nav-item {
+    @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300;
+  }
 }
