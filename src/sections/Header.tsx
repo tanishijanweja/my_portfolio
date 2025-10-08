@@ -13,9 +13,9 @@ export const Header = () => {
         </a>
         <a
           href="#"
-          className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
+          className="nav-item bg-pink-200 text-gray-900 hover:bg-pink-300 hover:text-gray-900"
         >
-          Contact
+          Resume
         </a>
       </nav>
     </div>
