@@ -29,11 +29,11 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-pink-200/20 cursor-pointer">
             <span className="font-semibold">Explore My Work</span>
             <ArrowDown className="size-4" />
           </button>
-          <button className="inline-flex items-center gap-2 border border-pink-200 bg-pink-200 text-gray-900 h-12 px-6 rounded-xl">
+          <button className="inline-flex items-center gap-2 border border-pink-200 bg-pink-200 text-gray-900 h-12 px-6 rounded-xl cursor-pointer">
             <img
               src={hand.src}
               alt="hand waving"
