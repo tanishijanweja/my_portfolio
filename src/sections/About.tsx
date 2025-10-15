@@ -41,16 +41,16 @@ const toolboxItems = [
     iconType: FaNode,
   },
   {
+    title: "NEXTJS",
+    iconType: RiNextjsFill,
+  },
+  {
     title: "TAILWINDCSS",
     iconType: RiTailwindCssFill,
   },
   {
     title: "TYPESCRIPT",
     iconType: SiTypescript,
-  },
-  {
-    title: "NEXTJS",
-    iconType: RiNextjsFill,
   },
 ];
 
