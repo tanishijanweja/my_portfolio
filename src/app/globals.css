@@ -55,6 +55,9 @@
   .container {
     @apply lg:max-w-5xl;
   }
+  .animate-move-left {
+    animation: move-left 30s linear infinite;
+  }
 }
 
 @theme inline {
@@ -170,5 +173,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
