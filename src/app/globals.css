@@ -58,6 +58,9 @@
   .animate-move-left {
     animation: move-left 30s linear infinite;
   }
+  .animate-move-right {
+    animation: move-right 15s linear infinite;
+  }
 }
 
 @theme inline {
@@ -182,5 +185,14 @@
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
