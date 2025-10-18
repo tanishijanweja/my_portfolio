@@ -59,13 +59,13 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col md:flex-row gap-0 md:gap-4">
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 cursor-pointer outline-2 hover:outline-pink-400">
+                      <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 cursor-pointer outline-2 hover:outline-pink-400">
                         <ArrowUpRight className="size-5" />
                         <span>View Live</span>
                       </button>
@@ -75,7 +75,7 @@ export const ProjectsSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 cursor-pointer outline-2 hover:outline-pink-400">
+                      <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 cursor-pointer outline-2 hover:outline-pink-400">
                         <Github className="h-5 w-5" />
                         <span>View Code</span>
                       </button>
