@@ -24,12 +24,12 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section className="pb-16 lg:py-24">
+    <section id="projects" className="pb-16 lg:py-24">
       <div className="container">
         <SectionHeader
           eyebrow="Real world Results"
           title="Featured Projects"
-          description="Building clean, functional, and creative web experiences."
+          description="Building clean, functional and creative web experiences."
         />
         <div className="mt-10 md:mt-20 flex flex-col gap-20">
           {portfolioProjects.map((project) => (
@@ -44,7 +44,7 @@ export const ProjectsSection = () => {
                     <span>&bull;</span>
                     <span>{project.year}</span>
                   </div>
-                  <h3 className="font-serif text-2xl mt-2 md:mt-5 md:text-4xl">
+                  <h3 className="font-sans text-2xl mt-2 md:mt-5 md:text-4xl">
                     {project.title}
                   </h3>
                   <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
@@ -60,13 +60,21 @@ export const ProjectsSection = () => {
                     ))}
                   </ul>
                   <div className="flex gap-4">
-                    <a href={project.link}>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 cursor-pointer outline-2 hover:outline-pink-400">
                         <ArrowUpRight className="size-5" />
                         <span>View Live</span>
                       </button>
                     </a>
-                    <a href={`https://github.com/tanishijanweja/vibe`}>
+                    <a
+                      href={`https://github.com/tanishijanweja/vibe`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 cursor-pointer outline-2 hover:outline-pink-400">
                         <Github className="h-5 w-5" />
                         <span>View Code</span>

@@ -8,7 +8,7 @@ export const ContactSection = () => {
         <Card className="py-8 px-10 text-center md:text-left">
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
             <div>
-              <h2 className="font-serif text-2xl md:text-3xl">
+              <h2 className="font-sans text-2xl md:text-3xl">
                 Let's create something amazing together
               </h2>
               <p className="text-sm md:text-base mt-2">
@@ -17,10 +17,15 @@ export const ContactSection = () => {
               </p>
             </div>
             <div>
-              <button className="text-black bg-white inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max justify-center cursor-pointer outline-2 hover:outline-pink-400">
+              <a
+                href="https://mail.google.com/mail/u/0/?to=tanishi.janweja@gmail.com&tf=cm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black bg-white inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max justify-center cursor-pointer outline-2 hover:outline-pink-400"
+              >
                 <span className="font-semibold">Contact Me</span>
                 <ArrowUpRight className="size-4" />
-              </button>
+              </a>
             </div>
           </div>
         </Card>

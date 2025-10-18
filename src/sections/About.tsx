@@ -1,3 +1,5 @@
+"use client";
+
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import Image from "next/image";
@@ -9,7 +11,18 @@ import { SiTypescript } from "react-icons/si";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolBoxItems";
 import mandala from "@/assets/images/mandala.jpeg";
+import painting from "@/assets/images/painting.jpeg";
+import dot_painting from "@/assets/images/dot_painting.jpeg";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { delay } from "framer-motion";
 
 const toolboxItems = [
   {
@@ -56,7 +69,7 @@ const toolboxItems = [
 
 export const AboutSection = () => {
   return (
-    <div className="py-20 lg:py-28">
+    <div id="about" className="py-20 lg:py-28">
       <div className="container">
         <SectionHeader
           eyebrow="About Me"
@@ -70,9 +83,13 @@ export const AboutSection = () => {
                 title="Beyond the Code"
                 description={
                   <>
-                    I also draw pretty stuff when I'm not stuck on semicolons.
+                    I also draw pretty stuff when I'm not stuck on semicolons
+                    <br />
+                    Check more:{" "}
                     <Link
                       href="https://www.instagram.com/colours.of.infinity/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-pink-100/60 hover:text-pink-500 text-sm inline-block"
                     >
                       @colours.of.infinity
@@ -80,10 +97,39 @@ export const AboutSection = () => {
                   </>
                 }
               />
-
-              <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={mandala} alt="Mandala Image" />
-              </div>
+              <Carousel className="-mt-4" plugins={[Autoplay({ delay: 2000 })]}>
+                <CarouselContent>
+                  <CarouselItem className="w-full flex justify-center">
+                    <Image
+                      src={mandala}
+                      alt="Mandala"
+                      width={160}
+                      height={160}
+                      className="rounded-lg object-contain max-h-40"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="w-full flex justify-center">
+                    <Image
+                      src={painting}
+                      alt="Starry Night Painting"
+                      width={160}
+                      height={160}
+                      className="rounded-lg object-contain max-h-40"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="flex justify-center">
+                    <Image
+                      src={dot_painting}
+                      alt="Starry Night Painting"
+                      width={100}
+                      height={100}
+                      className="rounded-lg object-cover"
+                    />
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="left-1" />
+                <CarouselNext className="right-1" />
+              </Carousel>
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader

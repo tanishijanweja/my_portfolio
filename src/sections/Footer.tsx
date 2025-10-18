@@ -3,19 +3,19 @@ import { ArrowUpRight } from "lucide-react";
 const footerLinks = [
   {
     title: "GitHub",
-    href: "",
+    href: "https://github.com/tanishijanweja",
   },
   {
     title: "LinkedIn",
-    href: "",
+    href: "https://www.linkedin.com/in/tanishi-janweja/",
   },
   {
     title: "X",
-    href: "",
+    href: "https://x.com/tanishijanweja",
   },
   {
     title: "YouTube",
-    href: "",
+    href: "https://www.youtube.com/@tanishijanweja5697",
   },
 ];
 
@@ -28,9 +28,11 @@ export const Footer = () => {
           <nav className="flex flex-col md:flex-row items-center gap-8">
             {footerLinks.map((link) => (
               <a
-                href="#"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={link.title}
-                className="inline-flex items-center gap-1.5"
+                className="inline-flex items-center gap-1.5 hover:text-pink-400"
               >
                 <span className="font-semibold">{link.title}</span>
                 <ArrowUpRight className="size-4" />
