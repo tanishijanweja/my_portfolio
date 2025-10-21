@@ -14,7 +14,7 @@ export const HeroSection = () => {
             Tanishi Janweja
           </h1>
           <h2 className="text-lg lg:text-xl font-medium text-pink-400 mb-6">
-            Full-Stack Web Developer
+            A Full-Stack Web Developer
           </h2>
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
             <div className="bg-pink-400 size-2.5 rounded-full"></div>
