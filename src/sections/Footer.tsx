@@ -15,7 +15,7 @@ const footerLinks = [
   },
   {
     title: "YouTube",
-    href: "https://www.youtube.com/@tanishijanweja5697",
+    href: "https://www.youtube.com/@TanishiJanweja",
   },
 ];
 
