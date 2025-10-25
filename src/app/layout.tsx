@@ -23,6 +23,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (!theme && !window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (_) {}
+            })();
+          `,
+        }}
+      />
       <body
         className={twMerge(
           inter.variable,
