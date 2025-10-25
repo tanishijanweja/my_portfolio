@@ -44,14 +44,14 @@ export const ProjectsSection = () => {
                     <span>&bull;</span>
                     <span>{project.year}</span>
                   </div>
-                  <h3 className="font-sans text-2xl mt-2 md:mt-5 md:text-4xl">
+                  <h3 className="font-sans text-2xl mt-2 md:mt-5 md:text-4xl text-black dark:text-white">
                     {project.title}
                   </h3>
-                  <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+                  <hr className="border-t-2 border-black/10 dark:border-white/5 mt-4 md:mt-5" />
                   <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                     {project.results.map((result) => (
                       <li
-                        className="flex gap-2 text-sm md:text-base text-white/50"
+                        className="flex gap-2 text-sm md:text-base text-black/60 dark:text-white/50"
                         key={result.title}
                       >
                         <CheckCircleIcon className="size-5 md:size-6" />

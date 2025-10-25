@@ -22,7 +22,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { delay } from "framer-motion";
 
 const toolboxItems = [
   {
@@ -90,7 +89,7 @@ export const AboutSection = () => {
                       href="https://www.instagram.com/colours.of.infinity/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-pink-100/60 hover:text-pink-500 text-sm inline-block"
+                      className="text-black/60 dark:text-pink-100/60 hover:text-pink-500 text-sm inline-block"
                     >
                       @colours.of.infinity
                     </Link>
