@@ -1,4 +1,5 @@
 import vibe from "@/assets/images/vibe.png";
+import signalist from "@/assets/images/signalist.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import { ArrowUpRight } from "lucide-react";
@@ -18,7 +19,30 @@ const portfolioProjects = [
       { title: "Dynamic UI Previews" },
     ],
     link: "https://vibe-ucq3.vercel.app/",
+    code: "https://github.com/tanishijanweja/vibe",
     image: vibe,
+  },
+  {
+    name: "SIGNALIST",
+    year: "November 2025",
+    title: "Real-Time Stock Tracker App",
+    results: [
+      {
+        title:
+          "Real-time market data with interactive charts and historical price view",
+      },
+      {
+        title:
+          "Personalized alerts & background jobs (Inngest) for notifications and daily digests",
+      },
+      {
+        title:
+          "Watchlist, company insights, and secure auth (BetterAuth) with MongoDB persistence",
+      },
+    ],
+    link: "https://signalist-stock-tracker-app-eight.vercel.app",
+    code: "https://github.com/tanishijanweja/signalist_stock-tracker-app",
+    image: signalist,
   },
 ];
 
@@ -71,7 +95,7 @@ export const ProjectsSection = () => {
                       </button>
                     </a>
                     <a
-                      href={`https://github.com/tanishijanweja/vibe`}
+                      href={project.code}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
