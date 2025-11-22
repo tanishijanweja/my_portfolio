@@ -14,7 +14,7 @@ export const Header = () => {
           About
         </a>
         <a
-          href="https://drive.google.com/file/d/10jwatMDz3D77uYehUw9QpeQDz9LqZ6JI/view?usp=sharing"
+          href="https://drive.google.com/file/d/1thBpocZHzkljew6RT_AaeKYBoREs0Xvr/view?usp=drivesdk"
           target="_blank"
           rel="noopener noreferrer"
           className="nav-item"
