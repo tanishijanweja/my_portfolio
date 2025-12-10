@@ -14,11 +14,7 @@ export const Header = () => {
           About
         </a>
         <a
-<<<<<<< HEAD
-          href="https://drive.google.com/file/d/1TVVj2xSP_lRMyUpJguio_kLOga9XvZGz/view?usp=drivesdk"
-=======
           href="https://drive.google.com/file/d/1TVVj2xSP_lRMyUpJguio_kLOga9XvZGz/view?usp=sharing"
->>>>>>> 759c141 (updated resume)
           target="_blank"
           rel="noopener noreferrer"
           className="nav-item"
