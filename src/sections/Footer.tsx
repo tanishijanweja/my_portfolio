@@ -24,8 +24,8 @@ export const Footer = () => {
     <footer className="relative">
       <div className="container">
         <div className="border-t border-black/20 dark:border-white/15 py-6 text-sm flex flex-col md:flex-row md:justify-between items-center gap-8">
-          <div className="text-black/50 dark:text-white/40">&copy; 2025. All rights reserved.</div>
-          <nav className="flex flex-col md:flex-row items-center gap-8">
+          <div className="text-black/50 dark:text-white/40">&copy; 2026. All rights reserved.</div>
+          <nav className="flex flex-row md:flex-row items-center gap-8">
             {footerLinks.map((link) => (
               <a
                 href={link.href}

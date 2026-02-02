@@ -22,28 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              try {
-                const theme = localStorage.getItem('theme');
-                if (theme === 'dark' || (!theme && !window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch (_) {}
-            })();
-          `,
-        }}
-      />
+    <html lang="en" suppressHydrationWarning>
       <body
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "antialiased font-sans bg-background text-foreground transition-colors duration-500"
+          "antialiased font-sans bg-background text-foreground transition-colors duration-500",
         )}
       >
         <ThemeProvider>{children}</ThemeProvider>

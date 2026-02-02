@@ -6,7 +6,7 @@ export const HeroSection = () => {
   return (
     <div id="home" className="py-22 md:py-24 lg:py-26">
       <div className="container">
-        <div className="flex flex-col items-center -mt-2">
+        <div className="flex flex-col items-center">
           <p className="text-pink-400 font-medium text-lg lg:text-xl mb-2">
             Hello I'm
           </p>
@@ -30,18 +30,27 @@ export const HeroSection = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <button className="inline-flex items-center gap-2 border dark:border-white/15 px-6 h-12 rounded-xl hover:bg-pink-200/20 cursor-pointer">
-              <span className="font-semibold">
-                <a href="#projects">Explore My Work</a>
-              </span>
+            <span className="font-semibold">
+              <a href="#projects">Explore My Work</a>
+            </span>
             <ArrowDown className="size-4" />
           </button>
-          <button className="inline-flex items-center gap-2 border border-pink-200 bg-pink-200 text-gray-900 h-12 px-6 rounded-xl">
+          <button className="inline-flex items-center gap-2 border border-pink-200 bg-pink-200 hover:bg-pink-200/90 text-gray-900 h-12 px-6 rounded-xl">
             <img
               src={hand.src}
               alt="hand waving"
               className="w-5 h-5 bg-pink-200 mix-blend-darken"
             />
-            <span className="font-semibold">Let's Connect</span>
+            {/* <span className="font-semibold">Let's Connect</span> */}
+            <div>
+              <a
+                href="https://mail.google.com/mail/u/0/?to=tanishi.janweja@gmail.com&tf=cm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="font-semibol">Contact Me</span>
+              </a>
+            </div>
           </button>
         </div>
         <div className="flex justify-center space-x-6 py-4">

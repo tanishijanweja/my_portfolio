@@ -3,25 +3,11 @@ import signalist from "@/assets/images/signalist.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import { ArrowUpRight } from "lucide-react";
-import grainImage from "@/assets/images/grain.jpg";
 import { Github } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
-  {
-    name: "VIBE",
-    year: "July 2025",
-    title: "AI-Powered Web App Builder",
-    results: [
-      { title: "AI Coding Assistant for Web Apps" },
-      { title: "Secure Auth & Billing" },
-      { title: "Dynamic UI Previews" },
-    ],
-    link: "https://vibe-ucq3.vercel.app/",
-    code: "https://github.com/tanishijanweja/vibe",
-    image: vibe,
-  },
   {
     name: "SIGNALIST",
     year: "November 2025",
@@ -44,6 +30,19 @@ const portfolioProjects = [
     code: "https://github.com/tanishijanweja/signalist_stock-tracker-app",
     image: signalist,
   },
+  {
+    name: "VIBE",
+    year: "July 2025",
+    title: "AI-Powered Web App Builder",
+    results: [
+      { title: "AI Coding Assistant for Web Apps" },
+      { title: "Secure Auth & Billing" },
+      { title: "Dynamic UI Previews" },
+    ],
+    link: "https://vibe-ucq3.vercel.app/",
+    code: "https://github.com/tanishijanweja/vibe",
+    image: vibe,
+  },
 ];
 
 export const ProjectsSection = () => {
@@ -63,7 +62,7 @@ export const ProjectsSection = () => {
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
-                  <div className="bg-linear-to-r from-pink-300 to-pink-500 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                  <div className="inline-flex text-pink-400 gap-2 font-bold uppercase tracking-widest text-sm bg-clip-text">
                     <span>{project.name}</span>
                     <span>&bull;</span>
                     <span>{project.year}</span>
@@ -83,14 +82,14 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="flex flex-col md:flex-row gap-0 md:gap-4">
+                  <div className="flex gap-6 md:gap-4">
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 cursor-pointer outline-2 hover:outline-pink-400">
-                        <ArrowUpRight className="size-5" />
+                      <button className="bg-white text-black h-12 w-32 md:w-auto px-6 rounded-lg font-semibold inline-flex items-center justify-center gap-2 mt-4 cursor-pointer outline-2 hover:outline-pink-400">
+                        <ArrowUpRight className="size-6" />
                         <span>View Live</span>
                       </button>
                     </a>
@@ -99,8 +98,8 @@ export const ProjectsSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <button className="bg-white text-black h-12 w-48 md:w-auto px-6 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-4 cursor-pointer outline-2 hover:outline-pink-400">
-                        <Github className="h-5 w-5" />
+                      <button className="bg-white text-black h-12 w-32 md:w-auto px-6 rounded-lg font-semibold inline-flex items-center justify-center gap-2 mt-4 cursor-pointer outline-2 hover:outline-pink-400">
+                        <Github className="h-6 w-6" />
                         <span>View Code</span>
                       </button>
                     </a>
