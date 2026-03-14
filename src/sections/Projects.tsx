@@ -1,5 +1,6 @@
 import vibe from "@/assets/images/vibe.png";
 import signalist from "@/assets/images/signalist.png";
+import manjula_portfolio from "@/assets/images/manjula_portfolio.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import { ArrowUpRight } from "lucide-react";
@@ -8,6 +9,19 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
+  {
+    name: "VIBE",
+    year: "July 2025",
+    title: "AI-Powered Web App Builder",
+    results: [
+      { title: "AI Coding Assistant for Web Apps" },
+      { title: "Secure Auth & Billing" },
+      { title: "Dynamic UI Previews" },
+    ],
+    link: "https://vibe-ucq3.vercel.app/",
+    code: "https://github.com/tanishijanweja/vibe",
+    image: vibe,
+  },
   {
     name: "SIGNALIST",
     year: "November 2025",
@@ -31,17 +45,26 @@ const portfolioProjects = [
     image: signalist,
   },
   {
-    name: "VIBE",
-    year: "July 2025",
-    title: "AI-Powered Web App Builder",
+    name: "Manjula's Portfolio",
+    year: "February 2026",
+    title: "Portfolio Website",
     results: [
-      { title: "AI Coding Assistant for Web Apps" },
-      { title: "Secure Auth & Billing" },
-      { title: "Dynamic UI Previews" },
+      {
+        title:
+          "Responsive design for all devices, showcasing projects and experience with a clean UI",
+      },
+      {
+        title:
+          "Built with Next.js, Tailwind CSS, and TypeScript for optimal performance and maintainability",
+      },
+      {
+        title:
+          "Deployed on Vercel with continuous integration for seamless updates and fast load times",
+      },
     ],
-    link: "https://vibe-ucq3.vercel.app/",
-    code: "https://github.com/tanishijanweja/vibe",
-    image: vibe,
+    link: "https://manjulavijh.com",
+    code: "https://github.com/ekakshjanweja/manjulavijh-portfolio",
+    image: manjula_portfolio,
   },
 ];
 
@@ -106,11 +129,18 @@ export const ProjectsSection = () => {
                   </div>
                 </div>
                 <div className="relative">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    className="mt-8 -mb-4 md:mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
-                  />
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      className="mt-8 -mb-4 md:mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+                    />
+                  </a>
                 </div>
               </div>
             </Card>

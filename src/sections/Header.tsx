@@ -7,6 +7,9 @@ export const Header = () => {
         <a href="#home" className="nav-item">
           Home
         </a>
+        <a href="#experience" className="nav-item">
+          Experience
+        </a>
         <a href="#projects" className="nav-item">
           Projects
         </a>
