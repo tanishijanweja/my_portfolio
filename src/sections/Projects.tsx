@@ -140,7 +140,7 @@ export const ProjectsSection = () => {
                       alt={project.title}
                       className="mt-8 -mb-4 md:mb-0 lg:mt-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
                     />
-                  </a>
+                  </a>c
                 </div>
               </div>
             </Card>
