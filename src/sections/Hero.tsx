@@ -26,6 +26,7 @@ export const HeroSection = () => {
             I build web applications that are creative, user-friendly and
             functional, bringing ideas to life with seamless digital
             experiences.
+            i use arch btw.
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
