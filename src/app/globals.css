@@ -21,27 +21,27 @@
   max-width: 100%;
 }
 
-@media (min-width: var(--screen-md)) {
+@media (min-width: 768px) {
   .container {
     padding-inline: var(--container-padding-md);
   }
 }
 
-@media (min-width: var(--screen-sm)) {
+@media (min-width: 375px) {
   .container {
-    max-width: var(--screen-sm);
+    max-width: 375px;
   }
 }
 
-@media (min-width: var(--screen-md)) {
+@media (min-width: 768px) {
   .container {
-    max-width: var(--screen-md);
+    max-width: 768px;
   }
 }
 
-@media (min-width: var(--screen-lg)) {
+@media (min-width: 1200px) {
   .container {
-    max-width: var(--screen-lg);
+    max-width: 1200px;
   }
 }
 
@@ -174,8 +174,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply overflow-x-hidden;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 
