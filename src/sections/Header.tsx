@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#about", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#about", label: "About" },
+  { href: "/blogs", label: "Blogs" },
   {
     href: "https://drive.google.com/file/d/1KBJyb4EcJx-2x-NS_Ym6x3V3Xq06L2Vh/view?usp=sharing",
     label: "Resume",
@@ -19,8 +21,11 @@ const navLinks = [
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => setMounted(true), []);
+
+  const isHomePage = pathname === "/";
 
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
@@ -45,15 +50,30 @@ export const Header = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (!href.startsWith("#")) return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      closeMenu();
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+    if (href.startsWith("http")) return;
+
+    if (isHomePage) {
+      if (href === "/") {
+        e.preventDefault();
+        closeMenu();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      if (href.startsWith("/#")) {
+        e.preventDefault();
+        const id = href.slice(2);
+        const target = document.getElementById(id);
+        if (target) {
+          closeMenu();
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+        return;
+      }
     }
+
+    closeMenu();
   };
 
   return (
@@ -65,11 +85,11 @@ export const Header = () => {
           {/* MOBILE HEADER */}
           <div className="flex w-full items-center justify-between md:hidden">
             <a
-              href="#home"
-              onClick={(e) => handleLinkClick(e, "#home")}
+              href="/"
+              onClick={(e) => handleLinkClick(e, "/")}
               className="text-lg font-medium tracking-tight"
             >
-              tanishi janweja
+              Tanishi Janweja
             </a>
 
             <div className="flex items-center gap-2">
@@ -103,14 +123,14 @@ export const Header = () => {
 
       {/* MOBILE MENU OVERLAY */}
       <div
-        className={`fixed inset-0 z-[60] bg-background/95 backdrop-blur-lg transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-60 bg-background/95 backdrop-blur-lg transition-opacity duration-300 md:hidden ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
       >
         {/* DRAWER */}
         <div
-          className={`fixed inset-y-0 right-0 w-full max-w-xs z-[70] bg-background transition-transform duration-300 ${
+          className={`fixed inset-y-0 right-0 w-full max-w-xs z-70 bg-background transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
