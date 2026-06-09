@@ -10,7 +10,7 @@ import { TapeSection } from "@/sections/Tape";
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
-      <Header/>
+      <Header />
       <HeroSection />
       <ExperienceSection />
       <ProjectsSection />

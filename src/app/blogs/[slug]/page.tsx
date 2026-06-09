@@ -5,6 +5,7 @@ import { Footer } from "@/sections/Footer";
 import { BlogRenderer } from "@/components/blog/BlogRenderer";
 import { blogPosts, getBlogBySlug } from "@/data/ConnectingDots";
 import { ArrowLeft } from "lucide-react";
+import { StarButton } from "@/components/blog/StarButton";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -40,19 +41,21 @@ async function BlogPostContent({
 
   return (
     <>
-      <div className="flex justify-end mb-2">
+      <div className="flex items-center justify-between mb-8">
         <Link
           href="/blogs"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-400 hover:underline"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-black/40 dark:text-white/40 hover:text-pink-500 transition-colors"
         >
-          <ArrowLeft className="size-4" />
-          Back
+          <ArrowLeft className="size-3.5" />
+          Back to posts
         </Link>
+        <StarButton slug={post.slug} />
       </div>
-      <h1 className="text-3xl md:text-5xl font-bold text-black dark:text-white">
+
+      <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-black dark:text-white">
         {post.title}
       </h1>
-      <p className="mt-3 text-sm md:text-base text-pink-400">
+      <p className="mt-3 text-xs font-medium font-mono uppercase tracking-widest text-pink-500">
         {post.date}
       </p>
       <p className="mt-4 text-base md:text-lg text-black/60 dark:text-white/60 leading-relaxed">
