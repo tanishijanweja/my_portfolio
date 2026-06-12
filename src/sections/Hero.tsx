@@ -49,7 +49,7 @@ export const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="font-semibol">Contact Me</span>
+                <span className="font-semibold">Contact Me</span>
               </a>
             </div>
           </button>

@@ -1,57 +1,47 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
 import { Star } from "lucide-react";
-
-function getVisitorId() {
-  let id = localStorage.getItem("visitor-id");
-  if (!id) {
-    id = crypto.randomUUID();
-    localStorage.setItem("visitor-id", id);
-  }
-  return id;
-}
+import { getVisitorId } from "@/lib/visitor";
 
 export function StarButton({ slug }: { slug: string }) {
   const [count, setCount] = useState(0);
   const [starred, setStarred] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     load();
   }, [slug]);
 
   async function load() {
-    const visitorId = getVisitorId();
-    const [{ count }, { data }] = await Promise.all([
-      supabase
-        .from("blog_stars")
-        .select("*", { count: "exact", head: true })
-        .eq("post_slug", slug),
-      supabase
-        .from("blog_stars")
-        .select("id")
-        .eq("post_slug", slug)
-        .eq("visitor_id", visitorId)
-        .maybeSingle(),
-    ]);
-    setCount(count ?? 0);
-    setStarred(Boolean(data));
-    setLoading(false);
+    try {
+      const visitorId = getVisitorId();
+      const res = await fetch(`/api/stars/${slug}`, {
+        headers: { "x-visitor-id": visitorId },
+      });
+      if (!res.ok) throw new Error("Failed to load");
+      const data = await res.json();
+      setCount(data.count);
+      setStarred(data.starred);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   async function handleStar() {
     const visitorId = getVisitorId();
 
     if (starred) {
-      const { error } = await supabase
-        .from("blog_stars")
-        .delete()
-        .eq("post_slug", slug)
-        .eq("visitor_id", visitorId);
+      const res = await fetch(`/api/stars/${slug}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ visitorId }),
+      });
 
-      if (!error) {
+      if (res.ok) {
         setStarred(false);
         setCount((c) => Math.max(0, c - 1));
       }
@@ -59,12 +49,13 @@ export function StarButton({ slug }: { slug: string }) {
       return;
     }
 
-    const { error } = await supabase.from("blog_stars").insert({
-      post_slug: slug,
-      visitor_id: visitorId,
+    const res = await fetch(`/api/stars/${slug}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ visitorId }),
     });
 
-    if (!error) {
+    if (res.ok) {
       setStarred(true);
       setCount((c) => c + 1);
     }
@@ -73,8 +64,17 @@ export function StarButton({ slug }: { slug: string }) {
   if (loading) {
     return (
       <div className="inline-flex items-center gap-1.5 text-sm text-black/30 dark:text-white/30">
-        <span className="text-[15px] leading-none">☆</span>
+        <Star className="h-5 w-5" />
         <span className="w-6 h-2.5 rounded bg-black/10 dark:bg-white/10 animate-pulse" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="inline-flex items-center gap-1.5 text-sm text-red-400">
+        <Star className="h-5 w-5" />
+        <span>Failed to load</span>
       </div>
     );
   }
