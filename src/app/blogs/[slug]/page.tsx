@@ -3,9 +3,17 @@ import Link from "next/link";
 import { Header } from "@/sections/Header";
 import { Footer } from "@/sections/Footer";
 import { BlogRenderer } from "@/components/blog/BlogRenderer";
-import { blogPosts, getBlogBySlug } from "@/data/ConnectingDots";
+import { blogPosts as connectingDotsPosts, getBlogBySlug as getConnectingDotsBlog } from "@/data/ConnectingDots";
+import { blogPosts as myCodingEnvPosts, getBlogBySlug as getMyCodingEnvBlog } from "@/data/MyCodingEnv";
+
+const blogPosts = [...connectingDotsPosts, ...myCodingEnvPosts];
+
+function getBlogBySlug(slug: string) {
+  return getConnectingDotsBlog(slug) || getMyCodingEnvBlog(slug);
+}
 import { ArrowLeft } from "lucide-react";
 import { StarButton } from "@/components/blog/StarButton";
+import { SuggestionBox } from "@/components/blog/SuggestionBox";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -63,6 +71,7 @@ async function BlogPostContent({
       </p>
       <hr className="border-t border-black/10 dark:border-white/10 my-8" />
       <BlogRenderer blocks={post.content} />
+      {post.slug === "my-coding-setup" && <SuggestionBox />}
     </>
   );
 }

@@ -2,7 +2,10 @@ import Link from "next/link";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import { CalendarDays, ArrowUpRight } from "lucide-react";
-import { blogPosts } from "@/data/ConnectingDots";
+import { blogPosts as connectingDotsPosts } from "@/data/ConnectingDots";
+import { blogPosts as myCodingEnvPosts } from "@/data/MyCodingEnv";
+
+const blogPosts = [...connectingDotsPosts, ...myCodingEnvPosts];
 
 export const BlogsSection = () => {
   return (

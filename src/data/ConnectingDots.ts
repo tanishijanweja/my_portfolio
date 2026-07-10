@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "connecting-the-dots",
     title: "Connecting the Dots",
-    date: "June 2026",
+    date: "9 June 2026",
     description: "How I Landed My First Internship as a Web Developer.",
     content: [
       { type: "subheading", text: "What is CallHQ?" },
