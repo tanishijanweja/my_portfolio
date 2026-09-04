@@ -1,6 +1,7 @@
 import vibe from "@/assets/images/vibe.png";
 import signalist from "@/assets/images/signalist.png";
 import manjula_portfolio from "@/assets/images/manjula_portfolio.png";
+import safeher from "@/assets/images/safeher.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import { ArrowUpRight } from "lucide-react";
@@ -65,6 +66,28 @@ const portfolioProjects = [
     link: "https://manjulavijh.com",
     code: "https://github.com/ekakshjanweja/manjulavijh-portfolio",
     image: manjula_portfolio,
+  },
+  {
+    name: "SAFEHER",
+    year: "August 2026",
+    title: "AI-Powered Women's Safety Platform",
+    results: [
+      {
+        title:
+          "AI-powered incident reporting using Gemini for categorization, severity analysis, and duplicate detection",
+      },
+      {
+        title:
+          "Combines public safety, latest new articles data and community reports to identify and visualize high-risk locations",
+      },
+      {
+        title:
+          "Real-time location sharing, trusted-contact alerts, route monitoring, and safety-zone detection",
+      },
+    ],
+    link: "https://safe-her-lilac.vercel.app/",
+    code: "https://github.com/tanishijanweja/SafeHer",
+    image: safeher,
   },
 ];
 

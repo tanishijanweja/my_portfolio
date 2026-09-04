@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/#about", label: "About" },
   { href: "/blogs", label: "Blogs" },
   {
-    href: "https://drive.google.com/file/d/1KBJyb4EcJx-2x-NS_Ym6x3V3Xq06L2Vh/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1fHuc0kDdXBYyaUD7cBERJUWFfZg7VA8b/view?usp=sharing",
     label: "Resume",
     external: true,
   },
