@@ -6,11 +6,11 @@ import { ModeToggle } from "@/components/ModeToggle";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#about", label: "About" },
-  { href: "/blogs", label: "Blogs" },
+  { href: "/", label: "Home", sectionId: null },
+  { href: "/#experience", label: "Experience", sectionId: "experience" },
+  { href: "/#projects", label: "Projects", sectionId: "projects" },
+  { href: "/#about", label: "About", sectionId: "about" },
+  { href: "/blogs", label: "Blogs", sectionId: "blogs" },
   {
     href: "https://drive.google.com/file/d/1fHuc0kDdXBYyaUD7cBERJUWFfZg7VA8b/view?usp=sharing",
     label: "Resume",
@@ -21,9 +21,46 @@ const navLinks = [
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (pathname !== "/" && pathname !== "/blogs") {
+      setActiveSection(null);
+      return;
+    }
+
+    if (pathname === "/blogs") {
+      setActiveSection("blogs");
+      return;
+    }
+
+    const handleScroll = () => {
+      if (window.scrollY < 200) {
+        setActiveSection(null);
+        return;
+      }
+
+      const sections = ["experience", "projects", "about"];
+      let current: string | null = null;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
 
   const isHomePage = pathname === "/";
 
@@ -105,17 +142,20 @@ export const Header = () => {
 
           {/* DESKTOP HEADER (your old one) */}
           <nav className="hidden md:flex gap-1 p-0.5 border border-black/10 dark:border-white/15 rounded-full bg-white/70 dark:bg-white/10 backdrop-blur supports-backdrop-filter:bg-white/70 dark:supports-backdrop-filter:bg-white/10 mx-auto">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="nav-item"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.sectionId === activeSection;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className={`nav-item ${isActive ? "nav-item-active" : ""}`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
             {mounted && <ModeToggle />}
           </nav>
         </div>
@@ -147,18 +187,23 @@ export const Header = () => {
 
           {/* LINKS */}
           <nav className="flex flex-col items-center justify-center h-[80vh] gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                className="text-3xl font-light tracking-wide hover:opacity-60"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.sectionId === activeSection;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className={`text-3xl font-light tracking-wide hover:opacity-60 px-6 py-2 rounded-xl ${
+                    isActive ? "bg-pink-400/15 text-pink-500 dark:text-pink-300" : ""
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
         </div>
       </div>

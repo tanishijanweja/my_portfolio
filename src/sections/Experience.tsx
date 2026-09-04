@@ -7,11 +7,12 @@ const experiences = [
     role: "Web Developer Intern",
     company: "CallHQ.ai",
     url: "https://callhq.ai/",
-    period: "March 2026 – Present",
+    period: "March 2026 – August 2026",
     type: "Internship",
     highlights: [
-      "Building and maintaining web features for the CallHQ platform",
-      "Collaborating with the team on frontend tasks",
+      "Built 15+ frontend modules for a WhatsApp SaaS dashboard, including real-time Inbox, automation flows, campaigns, Phonebook, Kanban and WhatsApp Forms.",
+      "Integrated REST APIs and Socket.IO with Redux-based state management and reusable UI components.",
+      "React · TypeScript · Redux Toolkit · Socket.IO · Tailwind CSS · Vite · ReactFlow",
     ],
   },
 ];
